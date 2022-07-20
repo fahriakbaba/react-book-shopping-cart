@@ -1,10 +1,18 @@
 import React from "react";
+import list from "./components/data";
 
 export const BookShop = React.createContext();
 
 
 function BookshopContext({children}) {
-    const [isShown, setShown] = React.useState(false); 
+    const [items, setItems] = React.useState(list)
+    const [isShown, setShown] = React.useState(true); 
+    const [shoppingList, setShoppingList] = React.useState([]);
+
+
+
+    console.log(items);
+
 
     const openMainPage = () => {
         setShown(true);
@@ -18,7 +26,8 @@ function BookshopContext({children}) {
     <BookShop.Provider value={{
         isShown,
         openMainPage,
-        openShoppingCart
+        openShoppingCart,
+        items,
     }}>
         {children}
     </BookShop.Provider>

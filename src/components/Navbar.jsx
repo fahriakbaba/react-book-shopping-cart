@@ -4,13 +4,17 @@ import { BookShop } from '../BookshopContext';
 
 
 function Navbar() {
-  const {isShown} = React.useContext(BookShop);
-  console.log(isShown);
+  const { openMainPage, openShoppingCart } = React.useContext(BookShop);
+  
+
+
+
+
   return (
     <header className='shopping-navbar'>
-      <h2>my shopping</h2>
+      <h2 onClick={() => openMainPage()}>my shopping</h2>
       <div className="cart-icon">
-        <FaCartPlus className='icon' />
+        <FaCartPlus className='icon'  onClick={() => openShoppingCart()} />
         <span className="shopping-number">0</span>
       </div>
     </header>
