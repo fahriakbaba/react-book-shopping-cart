@@ -15,6 +15,35 @@ function BookshopContext({ children }) {
         calculateShops();
     }, [shops])
 
+    
+    const calculateShops = () => {
+        let total = 0;
+        if(shops.length === 0) {
+            total = 0;
+            setTotal(total);
+            return;
+        }
+        shops.forEach(item => {
+            total += item.price * item.amount;
+            setTotal(total)
+        })
+    }
+
+    const increaseAmount = (id) => {
+        const findItem = shops.find(shop => (shop.id === id));
+        if(findItem.amount === 1) {
+            removeItem(id);
+            return;
+        }
+        setShops(shops.map(shop => shop.id===findItem.id ? {...shop, amount: shop.amount -1} : shop) )
+    }
+
+    const decreaseAmount = (id) => {
+        setShops(prevShop =>{
+            return prevShop.map(shop => shop.id === id ? {...shop, amount: shop.amount +1 } : shop)
+        });
+    }
+   
 
 
     const removeItem = (id) => {
@@ -45,32 +74,19 @@ function BookshopContext({ children }) {
     }
 
 
-    const calculateShops = () => {
-        let total = 0;
-        if(shops.length === 0) {
-            total = 0;
-            setTotal(total);
-            return;
-        }
-        shops.forEach(item => {
-            total += item.price * item.amount;
-            setTotal(total)
-        })
-    }
-
-    console.log(total);
 
     return (
         <BookShop.Provider value={{
             isShown,
-            openMainPage,
-            openShoppingCart,
             items,
-            addToShopping,
             shops,
             total,
+            openMainPage,
+            openShoppingCart,
+            addToShopping,
             removeItem,
-
+            increaseAmount,
+            decreaseAmount
         }}>
             {children}
         </BookShop.Provider>

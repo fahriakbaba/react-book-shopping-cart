@@ -3,7 +3,7 @@ import { BookShop } from '../BookshopContext';
 
 
 function ShoppingCart() {
-  const {shops, total, removeItem } = React.useContext(BookShop);
+  const {shops, total, removeItem, increaseAmount, decreaseAmount } = React.useContext(BookShop);
   return (
     <article className='list'>
       <ul className='list-group'>
@@ -16,9 +16,9 @@ function ShoppingCart() {
                   <h5>{shop.title}</h5>
                 </div>
                 <div className='buttons-container'>
-                  <button className="btn-decrease">-</button>
+                  <button className="btn-decrease" onClick={() => increaseAmount(shop.id)}>-</button>
                   <h4>{shop.amount}</h4>
-                  <button className="btn-increase">+</button>
+                  <button className="btn-increase" onClick={() => decreaseAmount(shop.id)}>+</button>
                 </div>
                 <div className='price-container'>
                   <p>{shop.price} YTL</p>
