@@ -1,5 +1,6 @@
 import React from 'react';
 import { BookShop } from '../BookshopContext';
+import { FaRegTrashAlt } from 'react-icons/fa';
 
 
 function ShoppingCart() {
@@ -21,15 +22,24 @@ function ShoppingCart() {
                   <button className="btn-increase" onClick={() => decreaseAmount(shop.id)}>+</button>
                 </div>
                 <div className='price-container'>
-                  <p>{shop.price} YTL</p>
-                  <button onClick={() => removeItem(shop.id)}>remove</button>
+                  <p className='display-price'>{shop.price} YTL</p>
+                  <button onClick={() => removeItem(shop.id)}><FaRegTrashAlt /> </button>
                 </div>
               </li>
             )
           })
         }
       </ul>
-      <h2 className='show-total'>Total: <span>{total} YTL</span></h2>
+      {total > 0 ? (
+        <h2 className='show-total'>Total: <span>{total} YTL</span></h2>
+      ) : (
+        <div  className='cart-alert'>
+        <h2>
+          Your bag
+        </h2>
+        <p>is currently empty.</p>
+        </div>
+      )}    
     </article>
   )
 }

@@ -11,7 +11,7 @@ function Navbar() {
 
   return (
     <header className='shopping-navbar'>
-      <h2 onClick={() => openMainPage()}>my shopping</h2>
+      <h2 onClick={() => openMainPage()}>my book shopping</h2>
       <div className="cart-icon">
         <FaCartPlus className='icon'  onClick={() => openShoppingCart()} />
         <span className="shopping-number">{shopAmount}</span>

@@ -5,16 +5,22 @@ export const BookShop = React.createContext();
 
 
 function BookshopContext({ children }) {
-    const [items, setItems] = React.useState(list)
+    const [items, setItems] = React.useState([]);
     const [isShown, setShown] = React.useState(true);
-    const [shops, setShops] = React.useState([]);
+    const [shops, setShops] = React.useState(() => JSON.parse(localStorage.getItem("shops")) || []);
     const [total, setTotal] =React.useState(0)
-
+    
+    React.useEffect(() => {
+        setItems(list);
+    }, [])
 
     React.useEffect(() => {
         calculateShops();
-    }, [shops])
+    })
 
+    React.useEffect(() => {
+        localStorage.setItem("shops", JSON.stringify(shops))
+    }, [shops])
     
     const calculateShops = () => {
         let total = 0;
@@ -61,7 +67,6 @@ function BookshopContext({ children }) {
     }
 
     const addToShopping = (item) => {
-
         const findItem = shops.find(shop => shop.id === item.id);
         if (findItem) {
             setShops(shops.map(shop => shop.id === findItem.id ? { ...shop, amount: shop.amount + 1 } : shop)
@@ -72,8 +77,6 @@ function BookshopContext({ children }) {
             })
         }
     }
-
-
 
     return (
         <BookShop.Provider value={{
@@ -92,6 +95,5 @@ function BookshopContext({ children }) {
         </BookShop.Provider>
     )
 }
-
 
 export default BookshopContext;
