@@ -12,12 +12,12 @@ function App() {
 
 
   return (
-    <main className="App">
+    <div className="App">
       <Navbar />
     {
       isShown ? <MainPage /> : <ShoppingCart />
     }
-    </main>
+    </div>
   );
 }
 

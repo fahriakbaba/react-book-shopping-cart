@@ -27,7 +27,7 @@
 }
 
 .icon {
-  font-size: 2.3rem;
+  font-size: 2.1rem;
   margin-right: 5px;
   cursor: pointer;
 }
@@ -35,12 +35,191 @@
 .shopping-number {
   position: absolute;
   top: -12px;
-  font-size: 1rem;
-  font-weight: 700;
-  color: red;
-  background-color: white;
-  border: 1px solid white;
-  padding: .1px 3px;
-  border-radius: 5px;
+  right: -12px;
+  font-size: .71rem; 
+  color: white;
+  background-color:#F10101;
+  border: 1px solid #F10101;
+  padding:2px 7px;
+  border-radius: 50%;
 }
 /* Navbar end */
+
+/* Card start */
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(100px, 1fr) );
+  grid-template-rows: auto;
+  grid-gap: 2rem;
+  padding: 36px 72px;
+}
+
+.book {
+  padding: 24px 48px;
+}
+
+.book-image {
+  width: 200px;
+}
+
+.book-info{
+  display: flex;
+  flex-direction: column;
+}
+
+.book-info h3 {
+  font-size: 1.3rem;
+  padding-block: 3px;
+}
+
+.book-info p {
+  color: gray;
+  font-size: .9rem;
+  padding-block: 1px;
+}
+
+.book-info span {
+  font-size: .9rem;
+  color: gray;
+  padding-block: 1px;
+}
+
+.btn-add {
+  display: inline-block;
+  margin-top: 5px;
+  padding: 6px 11px;
+  width: 150px;
+  background-color: #88C8E4;
+  border-radius: 5px;
+  font-weight: 600;
+  border: 2px solid #88C8E4;
+  outline: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all .7s;
+}
+
+.btn-add:hover {
+  background-color: white;
+  color: #88C8E4;
+  border: 2px solid #88C8E4;
+}
+/* Card end */
+
+
+/* ShoppingCart - start */
+.list {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: 2rem auto;
+}
+
+.list-group-item {
+  padding: 4px ;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 25px auto;
+  border-bottom: 2px solid #87CEEB;
+}
+
+.info-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 70%;
+}
+
+.info-container img {
+  width: 30px;
+  margin-right: 7px;
+}
+
+.info-container h5 {
+  font-size: 1.1rem;
+}
+
+.buttons-container {
+  width:  10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons-container h4 {
+  font-size: 1.4rem;
+}
+
+.btn-decrease, .btn-increase {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  margin: 0 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border: none;
+  outline: none;
+  font-size: 1.6rem;
+}
+
+.btn-decrease {
+  color: #C82333;
+  font-weight: bolder;
+}
+
+.btn-increase {
+  color: green;
+  font-weight: bolder;
+}
+
+.price-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 20%;
+}
+
+.price-container p {
+
+}
+
+.price-container button {
+  padding: 3px 12px;
+  text-transform: capitalize;
+  color: #C82333;
+  border: 2px solid #C82333;
+  background-color: white;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  margin-left: 8px;
+  letter-spacing: 1px;
+  transition: all .7s;
+}
+
+.price-container button:hover {
+  color: white;
+  background-color: #C82333;
+}
+
+.price-container p {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1.2rem;
+  font-weight: 600;
+  opacity: .7;
+}
+
+.show-total {
+  display: flex;
+  justify-content: space-between;
+}
+
+.show-total span {
+  opacity: .8;
+  font-weight: 400;
+}
+/* ShoppingCart - end */

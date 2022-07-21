@@ -5,15 +5,14 @@ import { BookShop } from '../BookshopContext';
 
 function MainPage() {
   const {items} = React.useContext(BookShop);
-
-  console.log(items);
+ 
 
   return (
-    <section>
+    <section className='container'>
         {
             items.map(item => {
                 return(
-                    <Card key={item.id} {...item} />
+                    <Card key={item.id} item={item} />
                 )
             })
         }
