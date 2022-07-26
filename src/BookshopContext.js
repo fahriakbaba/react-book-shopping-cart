@@ -35,7 +35,7 @@ function BookshopContext({ children }) {
         })
     }
 
-    const increaseAmount = (id) => {
+    const decreaseAmount = (id) => {
         const findItem = shops.find(shop => (shop.id === id));
         if(findItem.amount === 1) {
             removeItem(id);
@@ -44,7 +44,7 @@ function BookshopContext({ children }) {
         setShops(shops.map(shop => shop.id===findItem.id ? {...shop, amount: shop.amount -1} : shop) )
     }
 
-    const decreaseAmount = (id) => {
+    const increaseAmount = (id) => {
         setShops(prevShop =>{
             return prevShop.map(shop => shop.id === id ? {...shop, amount: shop.amount +1 } : shop)
         });

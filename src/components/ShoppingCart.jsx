@@ -17,9 +17,9 @@ function ShoppingCart() {
                   <h5>{shop.title}</h5>
                 </div>
                 <div className='buttons-container'>
-                  <button className="btn-decrease" onClick={() => increaseAmount(shop.id)}>-</button>
+                  <button className="btn-decrease" onClick={() => decreaseAmount(shop.id)}>-</button>
                   <h4>{shop.amount}</h4>
-                  <button className="btn-increase" onClick={() => decreaseAmount(shop.id)}>+</button>
+                  <button className="btn-increase" onClick={() => increaseAmount(shop.id)}>+</button>
                 </div>
                 <div className='price-container'>
                   <p className='display-price'>{shop.price} YTL</p>
